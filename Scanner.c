@@ -72,12 +72,17 @@ Token escanear(Scanner escaner){
 	if(c != ' '){
 		ungetc(c,stdin);
 	}
-	if(c == EOF){
-		strcpy(token.caracteres,"fdt");
+
+	if(token.posicion == 0){	//c es igual EOF por lo que no concatena ningun caracter, y la posicion no avanza (ver funcion concatenar)
+		/*strcpy(token.caracteres,"fdt");
 		token.cantidadDeCaracteres = 3;
-		token.posicion = 0;
+		token.posicion = 0;*/
+		token = concatenar(token,'f');
+		token = concatenar(token,'d');
+		token = concatenar(token,'t');
+
 	}
-	// corregir, ultimo token no lo retorna
+
 
 	return token;
 }
